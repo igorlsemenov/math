@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Репетитор И.Л.Семёнов</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+    <script>
+      function formatAnswer(p, index, list) {
+        const ANSWER = 'Ответ: ';
+        const innerHTML = p.innerHTML;
+        if (innerHTML.startsWith(ANSWER)) {
+          p.innerHTML = `${ANSWER}<span class='answer' style='filter: blur(5px);'>${innerHTML.substring(ANSWER.length)}</span>`;
+          p.onclick = function() {
+            const spanStyle = p.lastChild.style;
+            console.log('>>> ' + spanStyle.filter);
+            spanStyle.filter = (spanStyle.filter.includes('none') ? 'blur(5px)' : 'none');
+          };
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function() {
+        [...document.getElementsByTagName('p')].forEach(formatAnswer);
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          //minRuleThickness: 0.1,
+          output: 'html',
+          macros: {'\\R': '\\mathbb{R}'},
+          throwOnError : false
+        });
+      });
+    </script>
+    <style>
+      body {background-color: LightYellow; margin: 1em 2em;}
+      .katex { font-size: 1em !important; }
+    </style>
+  </head>
+  <body>
+    {{ content }}
+  </body>
+</html>
