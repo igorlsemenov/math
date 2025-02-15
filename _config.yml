@@ -2,3 +2,4 @@
 # Build settings
 markdown: kramdown
 permalink: /URL-PATH
+baseurl: https://igorlsemenov.github.io/math/алгебра/7/ф-лы_сокр._умножения/
