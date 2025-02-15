@@ -1,0 +1,8 @@
+title:       "Page title"
+header_title: "Header Title"
+email:       igor.l.semenov@gmail.com
+author:      И.Л.Семенов
+description: "My blog description"
+baseurl:     ""
+url:         "https://igorlsemenov.github.io/math/"
+date_format: "%-d.%m.%Y"
