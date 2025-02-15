@@ -32,8 +32,10 @@
           ],
           //minRuleThickness: 0.1,
           output: 'html',
-          macros: {'\\LBr': '\\left\\{'},
-          macros: {'\\RBr': '\\right\\}'},
+          macros: [
+            {'\\LBr': '\\left\\{'},
+            {'\\RBr': '\\right\\}'}
+          ],
           throwOnError : false
         });
       });
