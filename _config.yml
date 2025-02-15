@@ -1,13 +1,13 @@
-title:       "Page title"
-header_title: "Header Title"
-email:       "igor.l.semenov@gmail.com"
-author: И.Л.Семенов
-description: "My blog description"
-baseurl:     ""
-date_format: "%-d.%m.%Y"
-lang: ru-RU
-encoding: utf-8
-url: https://igorlsemenov.github.io
-permalink: pretty
-highlighter: rouge
-markdown: kramdown
+title:         "Page title"
+header_title:  "Header Title"
+email:         "igor.l.semenov@gmail.com"
+author:        И.Л.Семенов
+description:   "My blog description"
+baseurl:       ""
+date_format:   "%-d.%m.%Y"
+lang:          ru-RU
+encoding:      utf-8
+url:           https://igorlsemenov.github.io
+permalink:     pretty
+highlighter:   rouge
+markdown:      kramdown
