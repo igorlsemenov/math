@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dir</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        background-color: LightYellow;
+        margin: 1em 2em;
+        font-family: 'Roboto', sans-serif;
+      }
+      .footer { text-align: end; }
+    </style>
+  </head>
+  <body>
+
+    {{ content }}
+    {% include footer.html %}
+  </body>
+</html>
