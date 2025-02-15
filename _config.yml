@@ -10,4 +10,3 @@ encoding:      utf-8
 url:           https://igorlsemenov.github.io/math/
 permalink:     pretty
 highlighter:   rouge
-markdown:      kramdown
