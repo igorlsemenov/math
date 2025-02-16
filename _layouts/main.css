@@ -1,1 +1,27 @@
-saadad
+<style>
+      html {
+        --dark_background: #333;
+        --dark_font: #ccc;
+        --dark_math: Yellow;
+        
+        --light_background: LightYellow;       
+        --light_font: #333;
+        --light_math: RoyalBlue;
+        
+        color-scheme: light dark;
+        
+        --background_color: light-dark(var(--light_background), var(--dark_backgroundk));
+        --font_color: light-dark(var(--light_font), var(--dark_font));
+        --math_color: light-dark(var(--light_math), var(--dark_math));
+      }
+      body {
+        background-color: var(--background_color);
+        color: var(--font_color);
+        margin: 1em 2em;
+        font-family: 'Roboto', sans-serif;
+      }
+      .footer { text-align: end; }
+      a { font-style: italic; font-size: 90%; }
+      .katex { font-size: 1.1em !important; color: var(--math_color); }
+      .footer { text-align: end; }
+    </style>
