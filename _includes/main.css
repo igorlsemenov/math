@@ -1,6 +1,6 @@
 <style>
       html {
-        --dark_background: #333;
+        --dark_background: #222;
         --dark_font: #ccc;
         --dark_h4: #999;
         --dark_math: PaleTurquoise;
@@ -21,10 +21,11 @@
         background-color: var(--background_color);
         color: var(--font_color);
         margin: 1em 2em;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto', serif;
       }
       h4 {
         font-size: 120%;
+        font-weight: 300;
         color: var(--h4_color);  
       }
       .footer { text-align: end; }
