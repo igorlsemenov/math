@@ -21,7 +21,7 @@
         background-color: var(--background_color);
         color: var(--font_color);
         margin: 1em 2em;
-        font-family: 'Roboto', serif;
+        font-family: 'Roboto', sans-serif;
       }
       h4 {
         font-size: 120%;
