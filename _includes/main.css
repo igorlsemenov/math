@@ -28,7 +28,6 @@
       hr {
         border: 0;
         border-top: 1px solid light-dark(var(--light_font), var(--dark_font));
-        border-bottom: 1px solid light-dark(var(--light_font), var(--dark_font));
       }
       h4 {
         font-size: 120%;
