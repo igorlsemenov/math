@@ -10,19 +10,22 @@
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
     <script>
-      function formatAnswer(p, index, list) {
-        const ANSWER = 'Ответ: ';
+      function blurPar(p, parCaption) {
         const innerHTML = p.innerHTML;
-        if (innerHTML.startsWith(ANSWER)) {
-          p.innerHTML = `${ANSWER}<span class='answer' style='filter: blur(5px);'>${innerHTML.substring(ANSWER.length)}</span>`;
+        if (innerHTML.startsWith(parCaption)) {
+          p.innerHTML = `${parCaption}<span class='blured' style='filter: blur(5px);'>${innerHTML.substring(parCaption.length)}</span>`;
           p.onclick = function() {
             const spanStyle = p.lastChild.style;
             spanStyle.filter = (spanStyle.filter.includes('none') ? 'blur(5px)' : 'none');
           };
         }
       }
+      function setBlur(p, index, list) {
+        blurPar(p, "Ответ:");
+        blurPar(p, "Указания.");
+      }
       document.addEventListener("DOMContentLoaded", function() {
-        [...document.getElementsByTagName('p')].forEach(formatAnswer);
+        [...document.getElementsByTagName('p')].forEach(setBlur);
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},
