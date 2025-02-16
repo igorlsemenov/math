@@ -10,7 +10,7 @@
         
         color-scheme: light dark;
         
-        --background_color: light-dark(var(--light_background), var(--dark_backgroundk));
+        --background_color: light-dark(var(--light_background), var(--dark_background));
         --font_color: light-dark(var(--light_font), var(--dark_font));
         --math_color: light-dark(var(--light_math), var(--dark_math));
       }
