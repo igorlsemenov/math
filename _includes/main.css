@@ -2,16 +2,19 @@
       html {
         --dark_background: #333;
         --dark_font: #ccc;
+        --dark_h4: #999;
         --dark_math: PaleTurquoise;
         
         --light_background: LightYellow;       
         --light_font: #333;
+        --light_h4: #555;
         --light_math: RoyalBlue;
         
         color-scheme: light dark;
         
         --background_color: light-dark(var(--light_background), var(--dark_background));
         --font_color: light-dark(var(--light_font), var(--dark_font));
+        --h4_color: light-dark(var(--light_h4), var(--dark_h4));
         --math_color: light-dark(var(--light_math), var(--dark_math));
       }
       body {
@@ -19,6 +22,10 @@
         color: var(--font_color);
         margin: 1em 2em;
         font-family: 'Roboto', sans-serif;
+      }
+      h4 {
+        font-size: 120%;
+        color: var(--h4_color);  
       }
       .footer { text-align: end; }
       a { font-style: italic; font-size: 90%; }
