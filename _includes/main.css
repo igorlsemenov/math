@@ -3,11 +3,13 @@
         --dark_background: #222;
         --dark_font: #bbb;
         --dark_h4: #999;
+        --dark_em: #999;
         --dark_math: PaleTurquoise;
         
         --light_background: LightYellow;       
         --light_font: #333;
         --light_h4: #555;
+        --light_em: #555;
         --light_math: RoyalBlue;
         
         color-scheme: light dark;
@@ -15,6 +17,7 @@
         --background_color: light-dark(var(--light_background), var(--dark_background));
         --font_color: light-dark(var(--light_font), var(--dark_font));
         --h4_color: light-dark(var(--light_h4), var(--dark_h4));
+        --em_color: light-dark(var(--light_em), var(--dark_em));
         --math_color: light-dark(var(--light_math), var(--dark_math));
       }
       body {
@@ -32,6 +35,9 @@
         font-size: 120%;
         font-weight: 300;
         color: var(--h4_color);
+        letter-spacing: 1px;
+      }
+      em {
         letter-spacing: 1px;
       }
       a { font-style: italic; font-size: 90%; }
