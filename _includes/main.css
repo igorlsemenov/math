@@ -3,13 +3,13 @@
         --dark_background: #222;
         --dark_font: #bbb;
         --dark_h4: #999;
-        --dark_em: PaleTurquoise;
+        --dark_em: #999;
         --dark_math: PaleTurquoise;
         
         --light_background: LightYellow;       
         --light_font: #333;
         --light_h4: #555;
-        --light_em: RoyalBlue;
+        --light_em: #555;
         --light_math: RoyalBlue;
         
         color-scheme: light dark;
