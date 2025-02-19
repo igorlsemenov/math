@@ -40,6 +40,9 @@
       em, i {
         letter-spacing: 1px;
       }
+      em {
+        font-style: normal;
+      }
       a { font-style: italic; font-size: 90%; }
       .katex { font-size: 1.1em !important; color: var(--math_color); }
       .footer { text-align: end; }
