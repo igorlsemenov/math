@@ -37,7 +37,7 @@
         color: var(--h4_color);
         letter-spacing: 1px;
       }
-      em {
+      em, i {
         letter-spacing: 1px;
       }
       a { font-style: italic; font-size: 90%; }
