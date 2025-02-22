@@ -26,7 +26,7 @@
         margin: 1em 2em;
         font-family: 'Roboto', sans-serif;
         font-weight: 350;
-        line-height: 2;
+        line-height: 1.7;
       }
       hr {
         border: 0;
@@ -46,6 +46,6 @@
         color: var(--em_color);
       }
       a { font-style: italic; font-size: 90%; }
-      .katex { font-size: 1.1em !important; color: var(--math_color); }
+      .katex { font-size: 1.1em !important; color: var(--math_color); line-height: 2.5; }
       .footer { text-align: end; }
     </style>
