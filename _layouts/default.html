@@ -14,10 +14,10 @@
       function blurPar(p, parCaption) {
         const innerHTML = p.innerHTML;
         if (innerHTML.startsWith(parCaption)) {
-          p.innerHTML = `${parCaption}<span class='blured' style='filter: blur(5px);'>${innerHTML.substring(parCaption.length)}</span>`;
+          p.innerHTML = `${parCaption}<span class='blured' style='filter: blur(6px);'>${innerHTML.substring(parCaption.length)}</span>`;
           p.onclick = function() {
             const spanStyle = p.lastChild.style;
-            spanStyle.filter = (spanStyle.filter.includes('none') ? 'blur(5px)' : 'none');
+            spanStyle.filter = (spanStyle.filter.includes('none') ? 'blur(6px)' : 'none');
           };
         }
       }
