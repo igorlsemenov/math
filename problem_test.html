@@ -25,7 +25,7 @@
       });
     </script>
     <script>
-      function onclick_answer() {
+      function on_click_answer() {
         const answer_content_el = document.getElementById('answer_content_id');
         if (answer_content_el.classList.contains('blured_cl')) {
           answer_content_el.classList.replace('blured_cl', 'answer_visible_cl');
@@ -38,7 +38,7 @@
       }
     </script>
     <script>
-      function onclick_solution_part(el, onclick_part_number, last_part_number) {
+      function on_click_solution_part(el, onclick_part_number, last_part_number) {
         if (el.classList.contains('blured_cl')) {
           el.classList.replace('blured_cl', 'solution_visible_cl');
           if (onclick_part_number < last_part_number) {
@@ -58,6 +58,22 @@
             }
           }
           return;
+        }
+      }
+    </script>
+    <script>
+      function on_double_click(last_part_number) {
+        for (let i = 1; i <= last_part_number; i++) {
+          const el = document.getElementById('solution_part_id_' + i);
+          if (el.classList.contains('blured_cl')) {
+            el.classList.replace('blured_cl', 'solution_visible_cl');
+          } else if (el.classList.contains('hidden_cl')) {
+            el.classList.replace('hidden_cl', 'solution_visible_cl');
+          }
+        }
+        const el = document.getElementById('answer_content_id');
+        if (el.classList.contains('blured_cl')) {
+          el.classList.replace('blured_cl', 'answer_visible_cl');
         }
       }
     </script>
@@ -115,7 +131,8 @@
         filter: blur(4px);
         max-height: 2em;
         overflow: hidden;
-        margin-bottom: .5em; }
+        margin-bottom: .5em;
+      }
       .hidden_cl { display: none; }
       .solution_visible_cl { display: block;}
       .answer_visible_cl { display: inline-block;}
@@ -128,7 +145,7 @@
     </style>
 
   </head>
-  <body>
+  <body ondblclick="on_double_click(3)">
     <div class="problem_caption_cl">
       Решите неравенство
     </div>
@@ -139,23 +156,23 @@
       Решение
     </div>
     <div class="solution_cl">
-      <div class="solution_part_cl blured_cl" id="solution_part_id_1" onclick="onclick_solution_part(this, 1, 3)">
+      <div class="solution_part_cl blured_cl" id="solution_part_id_1" onclick="on_click_solution_part(this, 1, 3)">
         $3^{x^2} \left( 2^{x^2} - 4^x \right) - 81 \left( 2^{x^2} - 4^x \right) \leqslant 0$,
         <br />
         $\left(3^{x^2} - 3^4 \right) \left( 2^{x^2} - 2^{2x} \right) \leqslant 0$,
         <hr>
       </div>
-      <div class="solution_part_cl hidden_cl" id="solution_part_id_2" onclick="onclick_solution_part(this, 2, 3)">
+      <div class="solution_part_cl hidden_cl" id="solution_part_id_2" onclick="on_click_solution_part(this, 2, 3)">
         $\left( x^2 - 4 \right)\left( x^2 - 2x \right) \leqslant 0$,
         <br />
         $\left( x - 2 \right)^2\left( x + 2 \right) \leqslant 0$.
         <hr>
       </div>
-      <div class="solution_part_cl hidden_cl" id="solution_part_id_3" onclick="onclick_solution_part(this, 3, 3)">
+      <div class="solution_part_cl hidden_cl" id="solution_part_id_3" onclick="on_click_solution_part(this, 3, 3)">
         <img width="300" src="https://docs.google.com/drawings/d/1kAun-lzDkG9PaLAIaPFxh2fMwh5WfAJ1iG78tRzYNkA/export/svg" />
       </div>
     </div>
-    <div class="answer_cl" onclick="onclick_answer()">
+    <div class="answer_cl" onclick="on_click_answer()">
       <span class="answer_caption_cl">Ответ:</span>
       <span id="answer_content_id" class="answer_content_cl blured_cl">$[ -2; 0 ] \cup { 2 }$.</span>
     </div>
