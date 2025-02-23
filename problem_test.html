@@ -28,11 +28,11 @@
       function onclick_answer() {
         const answer_content_el = document.getElementById('answer_content_id');
         if (answer_content_el.classList.contains('blured_cl')) {
-          answer_content_el.classList.replace('blured_cl', 'visible_cl');
+          answer_content_el.classList.replace('blured_cl', 'answer_visible_cl');
           return;
         }
-        if (answer_content_el.classList.contains('visible_cl')) {
-          answer_content_el.classList.replace('visible_cl', 'blured_cl');
+        if (answer_content_el.classList.contains('answer_visible_cl')) {
+          answer_content_el.classList.replace('answer_visible_cl', 'blured_cl');
           return;
         }
       }
@@ -40,19 +40,19 @@
     <script>
       function onclick_solution_part(el, onclick_part_number, last_part_number) {
         if (el.classList.contains('blured_cl')) {
-          el.classList.replace('blured_cl', 'visible_cl');
+          el.classList.replace('blured_cl', 'solution_visible_cl');
           if (onclick_part_number < last_part_number) {
             const solution_part_el = document.getElementById('solution_part_id_' + (onclick_part_number + 1));
             solution_part_el.classList.replace('hidden_cl', 'blured_cl');
           }
           return;
         }
-        if (el.classList.contains('visible_cl')) {
-          el.classList.replace('visible_cl', 'blured_cl');
+        if (el.classList.contains('solution_visible_cl')) {
+          el.classList.replace('solution_visible_cl', 'blured_cl');
           for (let i = onclick_part_number + 1; i <= last_part_number; i++) {
             const solution_part_el = document.getElementById('solution_part_id_' + i);
-            if (solution_part_el.classList.contains('visible_cl')) {
-              solution_part_el.classList.replace('visible_cl', 'hidden_cl');
+            if (solution_part_el.classList.contains('solution_visible_cl')) {
+              solution_part_el.classList.replace('solution_visible_cl', 'hidden_cl');
             } else if (solution_part_el.classList.contains('blured_cl')) {
               solution_part_el.classList.replace('blured_cl', 'hidden_cl');
             }
@@ -91,9 +91,9 @@
         font-weight: 350;
         line-height: 1.7;
       }
-      hr {
+      hr, .solution_cl, .solution_caption_cl, .answer_cl {
         border: 0;
-        border-top: 1px solid light-dark(#ccc, #333);
+        border-bottom: 1px solid light-dark(#ccc, #333);
       }
       h4 {
         font-size: 120%;
@@ -111,11 +111,12 @@
       a { font-style: italic; font-size: 90%; }
       .katex { font-size: 1.1em !important; color: var(--math_color); line-height: 2.5; }
       .footer { text-align: end; }
-      .blured_cl { filter: blur(5px); }
+      .blured_cl { filter: blur(4px); max-height: 1.8em; overflow: hidden; margin-bottom: .5em; }
       .hidden_cl { display: none; }
-      .visible_cl { display: block;}
+      .solution_visible_cl { display: block;}
+      .answer_visible_cl { display: inline-block;}
       .answer_content_cl { margin: 0;}
-      .problem_caption, .solution_caption, .answer_caption {
+      .problem_caption_cl, .solution_caption_cl, .answer_caption_cl {
         letter-spacing: 1px;
         color: var(--em_color);
         font-style: normal;
@@ -124,37 +125,35 @@
 
   </head>
   <body>
-    <div class="problem_caption">
+    <div class="problem_caption_cl">
       Решите неравенство
     </div>
     <div class="problem_content">
       $6^{x^2} + 81 \cdot 4^x \leqslant 4^x \cdot 3^{x^2} + 81 \cdot 2^{x^2}$.
     </div>
-    <div class="solution_caption" onclick="click_solution_caption">
+    <div class="solution_caption_cl" onclick="click_solution_caption">
       Решение
     </div>
-    <div class="solution_content">
-      <div class="solution_part blured_cl" id="solution_part_id_1" onclick="onclick_solution_part(this, 1, 3)">
+    <div class="solution_cl">
+      <div class="solution_part_cl blured_cl" id="solution_part_id_1" onclick="onclick_solution_part(this, 1, 3)">
         $3^{x^2} \left( 2^{x^2} - 4^x \right) - 81 \left( 2^{x^2} - 4^x \right) \leqslant 0$,
         <br />
         $\left(3^{x^2} - 3^4 \right) \left( 2^{x^2} - 2^{2x} \right) \leqslant 0$,
-        <hr />
+        <hr>
       </div>
-      <div class="solution_part hidden_cl" id="solution_part_id_2" onclick="onclick_solution_part(this, 2, 3)">
+      <div class="solution_part_cl hidden_cl" id="solution_part_id_2" onclick="onclick_solution_part(this, 2, 3)">
         $\left( x^2 - 4 \right)\left( x^2 - 2x \right) \leqslant 0$,
         <br />
         $\left( x - 2 \right)^2\left( x + 2 \right) \leqslant 0$.
-        <hr />
+        <hr>
       </div>
-      <div class="solution_part hidden_cl" id="solution_part_id_3" onclick="onclick_solution_part(this, 3, 3)">
+      <div class="solution_part_cl hidden_cl" id="solution_part_id_3" onclick="onclick_solution_part(this, 3, 3)">
         <img width="300" src="https://docs.google.com/drawings/d/1kAun-lzDkG9PaLAIaPFxh2fMwh5WfAJ1iG78tRzYNkA/export/svg" />
-        <hr />
       </div>
     </div>
-    <div onclick="onclick_answer()">
-      <span class="answer_caption">Ответ:</span>
+    <div class="answer_cl" onclick="onclick_answer()">
+      <span class="answer_caption_cl">Ответ:</span>
       <span id="answer_content_id" class="answer_content_cl blured_cl">$[ -2; 0 ] \cup { 2 }$.</span>
-      <hr />
     </div>
     <p class="footer">© И.Л.Семенов, 2025</p>
   </body>
