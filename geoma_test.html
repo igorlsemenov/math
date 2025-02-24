@@ -54,6 +54,11 @@
             }
           }
         }
+        document.getElementById('my_copyright').scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          inline: "nearest"
+        });
       }
     </script>
     <script>
@@ -69,7 +74,7 @@
         const el = document.getElementById('answer_content_id');
         if (el.classList.contains('blured_cl')) {
           el.classList.replace('blured_cl', 'answer_visible_cl');
-        }
+        }  
       }
     </script>
     <style>
@@ -147,6 +152,7 @@
           Точка $W^B$ — середина дуги, описанной около ломаной $ABC$ ($AB > BC$).
           Точка $P$ — основание перпендикуляра, опущенного из точки $W^B$ на $AB$.
           Докажите, что $AP = PB + BC$.
+          <br>
           <img width='300' src="https://docs.google.com/drawings/d/1XJWRf9lbHFez-ZRO8Fx_u5Ks3wyES79dTBMreGfduTE/export/svg">
         </div>
         <div class="solution_caption_cl" onclick="click_solution_caption">
@@ -167,6 +173,6 @@
         </div>
       </div>
     </div>
-    <div class="footer">© И.Л.Семенов, 2025</div>
+    <div id="my_copyright" class="footer">© И.Л.Семенов, 2025</div>
   </body>
 </html>
