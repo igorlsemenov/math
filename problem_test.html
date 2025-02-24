@@ -54,6 +54,11 @@
             }
           }
         }
+        document.getElementById('my_copyright').scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          inline: "nearest"
+        });
       }
     </script>
     <script>
@@ -179,6 +184,6 @@
         <span id="answer_content_id" class="answer_content_cl blured_cl">$[ -2; 0 ] \cup { 2 }$.</span>
       </div>
     </div>
-    <div class="footer">© И.Л.Семенов, 2025</div>
+    <div  id="my_copyright" class="footer">© И.Л.Семенов, 2025</div>
   </body>
 </html>
