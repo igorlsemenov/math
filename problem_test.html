@@ -77,6 +77,9 @@
         margin: 0;
         padding: 0;
       }
+      html { height: 100%; }
+      body { min-height: 100%; display: grid; grid-template-rows: 1fr auto; }
+      .footer { grid-row-start: 2; grid-row-end: 3; }
       html {
         --dark_background: #222;
         --dark_font: #bbb;
@@ -101,10 +104,13 @@
       body {
         background-color: var(--background_color);
         color: var(--font_color);
-        margin: 1em 2em;
         font-family: 'Roboto', sans-serif;
         font-weight: 350;
         line-height: 1.7;
+        margin: 0;
+      }
+      .body_cl {
+        padding: 1em 2em 0 2em;
       }
       hr, .solution_cl, .problem_caption_cl, .solution_caption_cl, .answer_cl {
         border: 0;
@@ -112,7 +118,10 @@
       }
       a { font-style: italic; font-size: 90%; }
       .katex { font-size: 1.1em !important; color: var(--math_color); line-height: 2.2; }
-      .footer { text-align: end; }
+      .footer {
+        text-align: end;
+        padding: 0 1em 0.5em 0;
+      }
       .blured_cl {
         filter: blur(4px);
         max-height: 3em;
@@ -132,42 +141,44 @@
 
   </head>
   <body>
-    <div class="problem_cl" ondblclick="on_double_click()">
-      <div class="problem_caption_cl">
-        Решите неравенство
+    <div class="body_cl">
+      <div class="problem_cl" ondblclick="on_double_click()">
+        <div class="problem_caption_cl">
+          Решите неравенство
+        </div>
+        <div class="problem_content">
+          $6^{x^2} + 81 \cdot 4^x \leqslant 4^x \cdot 3^{x^2} + 81 \cdot 2^{x^2}$.
+        </div>
+        <div class="solution_caption_cl" onclick="click_solution_caption">
+          Решение
+        </div>
       </div>
-      <div class="problem_content">
-        $6^{x^2} + 81 \cdot 4^x \leqslant 4^x \cdot 3^{x^2} + 81 \cdot 2^{x^2}$.
+      <div class="solution_cl">
+        <div class="solution_part_cl blured_cl" id="solution_part_id_1" onclick="on_click_solution_part(this, 1)">
+          $3^{x^2} \left( 2^{x^2} - 4^x \right) - 81 \left( 2^{x^2} - 4^x \right) \leqslant 0$,
+          <hr>
+        </div>
+        <div class="solution_part_cl hidden_cl" id="solution_part_id_2" onclick="on_click_solution_part(this, 2)">
+          $\left(3^{x^2} - 3^4 \right) \left( 2^{x^2} - 2^{2x} \right) \leqslant 0$,
+          <hr>
+        </div>
+        <div class="solution_part_cl hidden_cl" id="solution_part_id_3" onclick="on_click_solution_part(this, 3)">
+          $\left( x^2 - 4 \right)\left( x^2 - 2x \right) \leqslant 0$,
+          <br />
+          $\left( x - 2 \right)^2\left( x + 2 \right) \leqslant 0$.
+          <hr>
+        </div>
+        <div class="solution_part_cl hidden_cl" id="solution_part_id_4" onclick="on_click_solution_part(this, 4)">
+          $x = 2$ — корень четной кратности!
+          <br />
+          <img width="300" src="https://docs.google.com/drawings/d/1kAun-lzDkG9PaLAIaPFxh2fMwh5WfAJ1iG78tRzYNkA/export/svg" />
+        </div>
       </div>
-      <div class="solution_caption_cl" onclick="click_solution_caption">
-        Решение
+      <div class="answer_cl" onclick="on_click_answer()">
+        <span class="answer_caption_cl">Ответ:</span>
+        <span id="answer_content_id" class="answer_content_cl blured_cl">$[ -2; 0 ] \cup { 2 }$.</span>
       </div>
     </div>
-    <div class="solution_cl">
-      <div class="solution_part_cl blured_cl" id="solution_part_id_1" onclick="on_click_solution_part(this, 1)">
-        $3^{x^2} \left( 2^{x^2} - 4^x \right) - 81 \left( 2^{x^2} - 4^x \right) \leqslant 0$,
-        <hr>
-      </div>
-      <div class="solution_part_cl hidden_cl" id="solution_part_id_2" onclick="on_click_solution_part(this, 2)">
-        $\left(3^{x^2} - 3^4 \right) \left( 2^{x^2} - 2^{2x} \right) \leqslant 0$,
-        <hr>
-      </div>
-      <div class="solution_part_cl hidden_cl" id="solution_part_id_3" onclick="on_click_solution_part(this, 3)">
-        $\left( x^2 - 4 \right)\left( x^2 - 2x \right) \leqslant 0$,
-        <br />
-        $\left( x - 2 \right)^2\left( x + 2 \right) \leqslant 0$.
-        <hr>
-      </div>
-      <div class="solution_part_cl hidden_cl" id="solution_part_id_4" onclick="on_click_solution_part(this, 4)">
-        $x = 2$ — корень четной кратности!
-        <br />
-        <img width="300" src="https://docs.google.com/drawings/d/1kAun-lzDkG9PaLAIaPFxh2fMwh5WfAJ1iG78tRzYNkA/export/svg" />
-      </div>
-    </div>
-    <div class="answer_cl" onclick="on_click_answer()">
-      <span class="answer_caption_cl">Ответ:</span>
-      <span id="answer_content_id" class="answer_content_cl blured_cl">$[ -2; 0 ] \cup { 2 }$.</span>
-    </div>
-    <p class="footer">© И.Л.Семенов, 2025</p>
+    <div class="footer">© И.Л.Семенов, 2025</div>
   </body>
 </html>
