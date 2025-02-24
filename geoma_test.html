@@ -77,6 +77,9 @@
         margin: 0;
         padding: 0;
       }
+      html { height: 100%; }
+      body { min-height: 100%; display: grid; grid-template-rows: 1fr auto; }
+      .footer { grid-row-start: 2; grid-row-end: 3; }
       html {
         --dark_background: #222;
         --dark_font: #bbb;
@@ -101,10 +104,13 @@
       body {
         background-color: var(--background_color);
         color: var(--font_color);
-        margin: 1em 2em;
         font-family: 'Roboto', sans-serif;
         font-weight: 350;
         line-height: 1.7;
+        margin: 0;
+      }
+      .body_cl {
+        padding: 1em 2em 0 2em;
       }
       hr, .solution_cl, .problem_caption_cl, .solution_caption_cl, .answer_cl {
         border: 0;
@@ -112,7 +118,10 @@
       }
       a { font-style: italic; font-size: 90%; }
       .katex { font-size: 1.1em !important; color: var(--math_color); line-height: 2.2; }
-      .footer { text-align: end; }
+      .footer {
+        text-align: end;
+        padding: 0 1em 0.5em 0;
+      }
       .blured_cl {
         filter: blur(4px);
         max-height: 3em;
@@ -132,30 +141,32 @@
 
   </head>
   <body>
-    <div class="problem_cl" ondblclick="on_double_click()">
-      <div class="problem_content">
-        Точка $W^B$ — середина дуги, описанной около ломаной $ABC$ ($AB > BC$).
-        Точка $P$ — основание перпендикуляра, опущенного из точки $W^B$ на $AB$.
-        Докажите, что $AP = PB + BC$.
-        <img width='300' src="https://docs.google.com/drawings/d/1XJWRf9lbHFez-ZRO8Fx_u5Ks3wyES79dTBMreGfduTE/export/svg">
+    <div class="body_cl">
+      <div class="problem_cl" ondblclick="on_double_click()">
+        <div class="problem_content">
+          Точка $W^B$ — середина дуги, описанной около ломаной $ABC$ ($AB > BC$).
+          Точка $P$ — основание перпендикуляра, опущенного из точки $W^B$ на $AB$.
+          Докажите, что $AP = PB + BC$.
+          <img width='300' src="https://docs.google.com/drawings/d/1XJWRf9lbHFez-ZRO8Fx_u5Ks3wyES79dTBMreGfduTE/export/svg">
+        </div>
+        <div class="solution_caption_cl" onclick="click_solution_caption">
+          Указания
+        </div>
       </div>
-      <div class="solution_caption_cl" onclick="click_solution_caption">
-        Указания
+      <div class="solution_cl">
+        <div class="solution_part_cl blured_cl" id="solution_part_id_1" onclick="on_click_solution_part(this, 1)">
+          1) $MP \parallel BL$ (по лемме Фусса).
+          <br>
+          <img width='300' src="https://docs.google.com/drawings/d/15JOkefF-_wNDp34AJa4WVaF3Xiq2KGqoN1GwDII3CUo/export/svg">
+          <hr>
+        </div>
+        <div class="solution_part_cl hidden_cl" id="solution_part_id_2" onclick="on_click_solution_part(this, 2)">
+          2) $AP$ — средняя линия $△ACQ$.
+          <br>
+          <img width='300' src="https://docs.google.com/drawings/d/1c3_pB93Wma-3YoabtePQAhV5dXZ32vk7Jff8WbyQLaA/export/svg">
+        </div>
       </div>
     </div>
-    <div class="solution_cl">
-      <div class="solution_part_cl blured_cl" id="solution_part_id_1" onclick="on_click_solution_part(this, 1)">
-        1) $MP \parallel BL$ (по лемме Фусса).
-        <br>
-        <img width='300' src="https://docs.google.com/drawings/d/15JOkefF-_wNDp34AJa4WVaF3Xiq2KGqoN1GwDII3CUo/export/svg">
-        <hr>
-      </div>
-      <div class="solution_part_cl hidden_cl" id="solution_part_id_2" onclick="on_click_solution_part(this, 2)">
-        2) $AP$ — средняя линия $△ACQ$.
-        <br>
-        <img width='300' src="https://docs.google.com/drawings/d/1c3_pB93Wma-3YoabtePQAhV5dXZ32vk7Jff8WbyQLaA/export/svg">
-        <hr>
-      </div>
-    <p class="footer">© И.Л.Семенов, 2025</p>
+    <div class="footer">© И.Л.Семенов, 2025</div>
   </body>
 </html>
