@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Задача 007</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+    <script>
+      const TOTAL_OF_SOLUTION_PARTS = 2;
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          output: 'html',
+          throwOnError : false
+        });
+      });
+    </script>
+    <script>
+      function on_click_answer() {
+        const el = document.getElementById('answer_content_id');
+        if (el.classList.contains('blured_cl')) {
+          el.classList.replace('blured_cl', 'answer_visible_cl');
+        } else if (el.classList.contains('answer_visible_cl')) {
+          el.classList.replace('answer_visible_cl', 'blured_cl');
+        }
+      }
+    </script>
+    <script>
+      function on_click_solution_part(el, n) {
+        if (el.classList.contains('blured_cl')) {
+          el.classList.replace('blured_cl', 'solution_visible_cl');
+          if (n < TOTAL_OF_SOLUTION_PARTS) {
+            const solution_part_el = document.getElementById('solution_part_id_' + (n + 1));
+            solution_part_el.classList.replace('hidden_cl', 'blured_cl');
+          }
+        } else if (el.classList.contains('solution_visible_cl')) {
+          el.classList.replace('solution_visible_cl', 'blured_cl');
+          for (let i = n + 1; i <= TOTAL_OF_SOLUTION_PARTS; i++) {
+            const solution_part_el = document.getElementById('solution_part_id_' + i);
+            if (solution_part_el.classList.contains('solution_visible_cl')) {
+              solution_part_el.classList.replace('solution_visible_cl', 'hidden_cl');
+            } else if (solution_part_el.classList.contains('blured_cl')) {
+              solution_part_el.classList.replace('blured_cl', 'hidden_cl');
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      function on_double_click() {
+        for (let i = 1; i <= TOTAL_OF_SOLUTION_PARTS; i++) {
+          const el = document.getElementById('solution_part_id_' + i);
+          if (el.classList.contains('blured_cl')) {
+            el.classList.replace('blured_cl', 'solution_visible_cl');
+          } else if (el.classList.contains('hidden_cl')) {
+            el.classList.replace('hidden_cl', 'solution_visible_cl');
+          }
+        }
+        const el = document.getElementById('answer_content_id');
+        if (el.classList.contains('blured_cl')) {
+          el.classList.replace('blured_cl', 'answer_visible_cl');
+        }
+      }
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        --dark_background: #222;
+        --dark_font: #bbb;
+        --dark_h4: #999;
+        --dark_em: #999;
+        --dark_math: PaleTurquoise;
+        
+        --light_background: LightYellow;
+        --light_font: #333;
+        --light_h4: #555;
+        --light_em: #555;
+        --light_math: RoyalBlue;
+        
+        color-scheme: light dark;
+        
+        --background_color: light-dark(var(--light_background), var(--dark_background));
+        --font_color: light-dark(var(--light_font), var(--dark_font));
+        --h4_color: light-dark(var(--light_h4), var(--dark_h4));
+        --em_color: light-dark(var(--light_em), var(--dark_em));
+        --math_color: light-dark(var(--light_math), var(--dark_math));
+      }
+      body {
+        background-color: var(--background_color);
+        color: var(--font_color);
+        margin: 1em 2em;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 350;
+        line-height: 1.7;
+      }
+      hr, .solution_cl, .problem_caption_cl, .solution_caption_cl, .answer_cl {
+        border: 0;
+        border-bottom: 1px solid light-dark(#ccc, #333);
+      }
+      a { font-style: italic; font-size: 90%; }
+      .katex { font-size: 1.1em !important; color: var(--math_color); line-height: 2.2; }
+      .footer { text-align: end; }
+      .blured_cl {
+        filter: blur(4px);
+        max-height: 3em;
+        overflow: hidden;
+        margin-bottom: .5em;
+      }
+      .hidden_cl { display: none; }
+      .solution_visible_cl { display: block;}
+      .answer_visible_cl { display: inline-block;}
+      .answer_content_cl { margin: 0;}
+      .problem_caption_cl, .solution_caption_cl, .answer_caption_cl {
+        letter-spacing: 1px;
+        color: var(--em_color);
+        font-style: normal;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="problem_cl" ondblclick="on_double_click()">
+      <div class="problem_content">
+        Точка $W^B$ — середина дуги, описанной около ломаной $ABC$ ($AB > BC$).
+        Точка $P$ — основание перпендикуляра, опущенного из точки $W^B$ на $AB$.
+        Докажите, что $AP = PB + BC$.
+        <img width='300' src="https://docs.google.com/drawings/d/1XJWRf9lbHFez-ZRO8Fx_u5Ks3wyES79dTBMreGfduTE/export/svg">
+      </div>
+      <div class="solution_caption_cl" onclick="click_solution_caption">
+        Указания
+      </div>
+    </div>
+    <div class="solution_cl">
+      <div class="solution_part_cl blured_cl" id="solution_part_id_1" onclick="on_click_solution_part(this, 1)">
+        1) $MP \parallel BL$ (по лемме Фусса).
+        <br>
+        <img width='300' src="https://docs.google.com/drawings/d/15JOkefF-_wNDp34AJa4WVaF3Xiq2KGqoN1GwDII3CUo/export/svg">
+        <hr>
+      </div>
+      <div class="solution_part_cl hidden_cl" id="solution_part_id_2" onclick="on_click_solution_part(this, 2)">
+        2) $AP$ — средняя линия $△ACQ$.
+        <br>
+        <img width='300' src="https://docs.google.com/drawings/d/1c3_pB93Wma-3YoabtePQAhV5dXZ32vk7Jff8WbyQLaA/export/svg">
+        <hr>
+      </div>
+    <p class="footer">© И.Л.Семенов, 2025</p>
+  </body>
+</html>
