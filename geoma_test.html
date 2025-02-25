@@ -43,6 +43,7 @@
             const solution_part_el = document.getElementById('solution_part_id_' + (n + 1));
             solution_part_el.classList.replace('hidden_cl', 'blured_cl');
           }
+          el.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
         } else if (el.classList.contains('solution_visible_cl')) {
           el.classList.replace('solution_visible_cl', 'blured_cl');
           for (let i = n + 1; i <= TOTAL_OF_SOLUTION_PARTS; i++) {
@@ -53,12 +54,9 @@
               solution_part_el.classList.replace('blured_cl', 'hidden_cl');
             }
           }
+          document.getElementById('my_copyright').scrollIntoView({
+            behavior: "smooth", block: "end", inline: "nearest" });
         }
-        document.getElementById('my_copyright').scrollIntoView({
-          behavior: "smooth",
-          block: "end",
-          inline: "nearest"
-        });
       }
     </script>
     <script>
