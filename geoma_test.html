@@ -131,7 +131,7 @@
         color: var(--font_color);
         font-family: 'Roboto', sans-serif;
         font-weight: 350;
-        line-height: 1.7;
+        line-height: 1.5;
       }
       hr, .solution_cl, .problem_caption_cl, .solution_caption_cl, .answer_cl {
         border: 0;
@@ -139,7 +139,7 @@
       }
       .problem_caption_cl { margin-bottom: 0.5em; }
       a { font-style: italic; font-size: 90%; }
-      .katex { color: var(--math_color); line-height: 1.7; }
+      .katex { color: var(--math_color); line-height: 1.5; }
       .footer {
         letter-spacing: 1px;
         color: var(--em_color);
@@ -162,7 +162,7 @@
         font-style: normal;
       }
       @media (orientation: landscape) {
-        .adoptive_text { display: inline-block; max-width: 30em; vertical-align: top; padding-top: 1em; }
+        .adoptive_text { display: inline-block; max-width: 32em; vertical-align: top; padding-top: 1em; }
         .adoptive_img { display: inline-block; vertical-align: top; }
       }
       @media (orientation: portrait) {
@@ -184,7 +184,6 @@
           <div class="adoptive_text">
             Точка $N$ — середина дуги, описанной около ломаной $ABC$, в которой $AB > BC$.
             Точка $P$ — основание перпендикуляра, опущенного из точки $N$ на $AB$.
-            <br>
             Докажите, что $AP = PB + BC$.
           </div>
           <div class="adoptive_img">
@@ -200,10 +199,10 @@
 
         <div class="solution_part_cl blured_cl" id="solution_part_id_1" onclick="on_click_solution_part(this, 1)">
           <div class="adoptive_text">
-            1) $MP \parallel WB$ (по лемме Фусса).<br>
-            $AN$ — общая хорда двух окружностей.<br>
-            Прямые $AB$ и $NW$ проходят через концы этой хорды.<br>
-            Указанные прямые пересекают окружности в точках, которые задают параллельные прямые.
+            1) $MP \parallel WB$ (по лемме Фусса).
+            $AN$ — общая хорда двух окружностей.
+            Прямые $AB$ и $NW$ проходят через концы этой хорды.
+            Тогда указанные прямые пересекают окружности в точках, которые задают параллельные прямые.
           </div>
           <div class="adoptive_img">
             <img width='300' src="https://docs.google.com/drawings/d/15JOkefF-_wNDp34AJa4WVaF3Xiq2KGqoN1GwDII3CUo/export/svg">
