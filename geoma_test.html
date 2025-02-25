@@ -156,6 +156,7 @@
         color: var(--em_color);
         font-style: normal;
       }
+      .img_in_line { display: inline-block; width: 100%; text-align: center; }
       @media (orientation: landscape) {
         .adoptive_text { display: inline-block; max-width: 30em; vertical-align: top; }
         .adoptive_img { display: inline-block; vertical-align: top; }
@@ -190,13 +191,17 @@
         <div class="solution_part_cl blured_cl" id="solution_part_id_1" onclick="on_click_solution_part(this, 1)">
           1) $MP \parallel BL$ (по лемме Фусса).
           <br>
-          <img width='300' src="https://docs.google.com/drawings/d/15JOkefF-_wNDp34AJa4WVaF3Xiq2KGqoN1GwDII3CUo/export/svg">
+          <div class="img_in_line">
+            <img width='300' src="https://docs.google.com/drawings/d/15JOkefF-_wNDp34AJa4WVaF3Xiq2KGqoN1GwDII3CUo/export/svg">
+          </div>
           <hr>
         </div>
         <div class="solution_part_cl hidden_cl" id="solution_part_id_2" onclick="on_click_solution_part(this, 2)">
           2) $AP$ — средняя линия $△ACQ$.
           <br>
-          <img width='300' src="https://docs.google.com/drawings/d/1c3_pB93Wma-3YoabtePQAhV5dXZ32vk7Jff8WbyQLaA/export/svg">
+          <div class="img_in_line">
+            <img width='300' src="https://docs.google.com/drawings/d/1c3_pB93Wma-3YoabtePQAhV5dXZ32vk7Jff8WbyQLaA/export/svg">
+          </div>
           <br>
           $\square$
         </div>
