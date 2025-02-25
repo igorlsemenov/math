@@ -78,28 +78,6 @@
       }
     </script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        height: 100%;
-      }
-      body {
-        background-color: var(--background_color);
-        max-width: 60em;
-        min-height: 100%;
-        display: grid;
-        place-items: center;
-        grid-template-rows: 1fr auto;
-        border: 0;
-        border-left: 1px solid light-dark(#ccc, #333);
-        border-right: 1px solid light-dark(#ccc, #333);
-      }
-      .body_cl {
-        padding: 1em 2em 0 2em;
-      }
-      .footer { grid-row-start: 2; grid-row-end: 3; }
       html {
         --dark_background: #222;
         --dark_font: #bbb;
@@ -121,13 +99,37 @@
         --em_color: light-dark(var(--light_em), var(--dark_em));
         --math_color: light-dark(var(--light_math), var(--dark_math));
       }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        height: 100%;
+        width: 100%;
+        background-color: #222;
+      }
+      body {
+        margin: 0 auto;
+        background-color: var(--background_color);
+        max-width: 60em;
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        border: 0;
+        border-left: 1px solid light-dark(#ccc, #333);
+        border-right: 1px solid light-dark(#ccc, #333);
+      }
+      .body_cl {
+        padding: 1em 2em 0 2em;
+      }
+      .footer { grid-row-start: 2; grid-row-end: 3; }
+      
       body {
         background-color: var(--background_color);
         color: var(--font_color);
         font-family: 'Roboto', sans-serif;
         font-weight: 350;
         line-height: 1.7;
-        margin: 0;
       }
       hr, .solution_cl, .problem_caption_cl, .solution_caption_cl, .answer_cl {
         border: 0;
