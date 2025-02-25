@@ -160,13 +160,10 @@
         float: left;
       }
       @media (orientation: landscape) {
-        .adoptive_text { float: left; }
-        .adoptive_img { float: right; }
+        .adoptive_text { display: inline-block; max-width: 35em; }
+        .adoptive_img { display: inline-block; }
       }
-
       @media (orientation: portrait) {
-        .adoptive_text { float: left; }
-        .adoptive_img { float: left; }
       }
     </style>
   </head>
@@ -177,11 +174,14 @@
           Теорема Архимеда
         </div>
         <div class="problem_content">
-          <img class="adoptive_img" width='300' src="https://docs.google.com/drawings/d/1XJWRf9lbHFez-ZRO8Fx_u5Ks3wyES79dTBMreGfduTE/export/svg">
+          <div class="adoptive_text">
             Точка $W^B$ — середина дуги, описанной около ломаной $ABC$ ($AB > BC$).
             Точка $P$ — основание перпендикуляра, опущенного из точки $W^B$ на $AB$.
             Докажите, что $AP = PB + BC$.
-          
+          </div>
+          <div class="adoptive_img">
+            <img width='300' src="https://docs.google.com/drawings/d/1XJWRf9lbHFez-ZRO8Fx_u5Ks3wyES79dTBMreGfduTE/export/svg">
+          </div>
           <div style="clear: both;"></div>
         </div>
         <div class="solution_caption_cl" onclick="click_solution_caption">
