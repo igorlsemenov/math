@@ -94,6 +94,7 @@
         color-scheme: light dark;
         
         --background_color: light-dark(var(--light_background), var(--dark_background));
+        --box_shadow_color: light-dark(var(--light_background), #333);
         --font_color: light-dark(var(--light_font), var(--dark_font));
         --h4_color: light-dark(var(--light_h4), var(--dark_h4));
         --em_color: light-dark(var(--light_em), var(--dark_em));
@@ -117,8 +118,8 @@
         grid-template-rows: 1fr auto;
         border: 0;
         box-shadow:
-          -5px 0px 5px light-dark(var(--light_background), #555),
-          5px 0px 5px light-dark(var(--light_background), #333);
+          -5px 0px 5px var(--box_shadow_color),
+          5px 0px 5px var(--box_shadow_color));
       }
       .body_cl {
         padding: 1em 1em 0 1em;
