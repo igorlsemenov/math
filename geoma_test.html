@@ -82,12 +82,19 @@
         margin: 0;
         padding: 0;
       }
-      html { height: 100%; }
+      html {
+        height: 100%;
+        background-color: #eee;
+      }
       body {
-        max-width: 30em;
+        background-color: var(--background_color);
+        max-width: 60em;
         min-height: 100%;
         display: grid;
         grid-template-rows: 1fr auto;
+      }
+      .body_cl {
+        padding: 1em 2em 0 2em;
       }
       .footer { grid-row-start: 2; grid-row-end: 3; }
       html {
@@ -118,9 +125,6 @@
         font-weight: 350;
         line-height: 1.7;
         margin: 0;
-      }
-      .body_cl {
-        padding: 1em 2em 0 2em;
       }
       hr, .solution_cl, .problem_caption_cl, .solution_caption_cl, .answer_cl {
         border: 0;
