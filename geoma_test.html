@@ -83,7 +83,12 @@
         padding: 0;
       }
       html { height: 100%; }
-      body { min-height: 100%; display: grid; grid-template-rows: 1fr auto; }
+      body {
+        max-width: 30em;
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: 1fr auto;
+      }
       .footer { grid-row-start: 2; grid-row-end: 3; }
       html {
         --dark_background: #222;
